@@ -59,4 +59,3 @@ int main(){
     display_array("New combined array: ", combined_array, total_size);
     return 0;
 }
-
