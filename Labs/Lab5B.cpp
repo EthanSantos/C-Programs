@@ -21,6 +21,8 @@ int* read_data(float* array, int& size){
         array[size] = input;
         size++;
     }
+    cin.clear();
+    cin.ignore();
     return &size;
 }
 
@@ -35,24 +37,25 @@ int main(){
     const int CAPACITY = 20;
     int first_size = 0;
     int second_size = 0;
+    int total_size;
     float first_array[CAPACITY];
     float second_array[CAPACITY];
     float combined_array[CAPACITY];
+    
     read_data(first_array, first_size);
     display_array("First array: ", first_array, first_size);
-    cin.clear();
-    cin.ignore();
     read_data(second_array, second_size);
     display_array("Second array: ", second_array, second_size);
+
     // create new array
-    int total_size = second_size + first_size;
-    cout << endl << "New combined size: " << (total_size) << endl;
+    total_size = second_size + first_size;
     for (int i = 0; i < first_size; i++){
         combined_array[i] = first_array[i];
     }
     for (int i = 0; i < second_size; i++){
         combined_array[i+first_size] = second_array[i];
     }
+    cout << endl << "New array size: " << total_size << endl;
     display_array("New combined array: ", combined_array, total_size);
     return 0;
 }
